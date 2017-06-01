@@ -44,9 +44,12 @@ endif
 if !exists('g:HiCursorWords_debugEchoHiName')
     let g:HiCursorWords_debugEchoHiName = 0
 endif
+if !exists('g:HiCursorWords_style')
+    let g:HiCursorWords_style = 'MatchParen'
+endif
 
-
-highlight! link WordUnderTheCursor Underlined
+let s:highlight = 'highlight! link WordUnderTheCursor ' . g:HiCursorWords_style
+exec s:highlight
 
 augroup HiCursorWords
     autocmd!
